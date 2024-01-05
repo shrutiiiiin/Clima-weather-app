@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
 class loadingscreen extends StatefulWidget {
-  Future<void> getLocation() async {
-    Position position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.low);
-    print(position);
-  }
-
   @override
   State<loadingscreen> createState() => _loadingscreenState();
 }
 
 class _loadingscreenState extends State<loadingscreen> {
+  void getLocation() async {
+    LocationPermission permission = await Geolocator.requestPermission();
+    Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.low);
+    print(position);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +24,9 @@ class _loadingscreenState extends State<loadingscreen> {
             style: TextButton.styleFrom(
               backgroundColor: Colors.blue[100],
             ),
-            onPressed: () {},
+            onPressed: () {
+              getLocation();
+            },
             child: Text(
               'Get Location',
               style: TextStyle(
