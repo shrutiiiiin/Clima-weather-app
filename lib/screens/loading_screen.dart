@@ -21,7 +21,10 @@ class _loadingscreenState extends State<loadingscreen> {
             onPressed: () {},
             child: Text(
               'Get Location',
-              style: TextStyle(color: Colors.black),
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 30,
+                  fontStyle: FontStyle.italic),
             ),
           ),
         ),
