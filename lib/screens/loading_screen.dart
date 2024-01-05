@@ -11,12 +11,20 @@ class _loadingscreenState extends State<loadingscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: TextButton(
-        style: TextButton.styleFrom(
-          backgroundColor: Colors.blue[100],
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: TextButton(
+            style: TextButton.styleFrom(
+              backgroundColor: Colors.blue[100],
+            ),
+            onPressed: () {},
+            child: Text(
+              'Get Location',
+              style: TextStyle(color: Colors.black),
+            ),
+          ),
         ),
-        onPressed: () {},
-        child: Text('Get Location'),
       ),
     );
   }
