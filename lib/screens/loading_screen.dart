@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:clima/services/location.dart';
 
 class loadingscreen extends StatefulWidget {
   @override
@@ -12,7 +13,10 @@ class _loadingscreenState extends State<loadingscreen> {
     getLocation();
   }
 
-  void getLocation() async {}
+  void getLocation() async {
+    Location location = Location();
+    await location.getCurrentLocation();
+  }
 
   @override
   Widget build(BuildContext context) {
