@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:clima/services/location.dart';
 import '../utilities/constants.dart';
 
-
+const apiKey = '496781d96d32d174fdb6b60abc1f211f';
 class loadingscreen extends StatefulWidget {
   @override
   State<loadingscreen> createState() => _loadingscreenState();
@@ -30,13 +30,10 @@ class _loadingscreenState extends State<loadingscreen> {
 
     var weatherData = await networkHelper.getData();
     Navigator.push(context, MaterialPageRoute(builder: (context){
-     return LocationScreen(locationWeather: weatherData,);
+     return LocationScreen(locationWeather: weatherData);
     })
     );
-
-
   }
-
   @override
   Widget build(BuildContext context)
   {
@@ -45,9 +42,7 @@ class _loadingscreenState extends State<loadingscreen> {
           child: SpinKitThreeBounce(
             color: Colors.lightBlueAccent,
             size: 50,
-          ),
-
-        ),
+          ),),
         );
   }
 }
