@@ -3,9 +3,9 @@ import 'package:clima/screens/location_screen.dart';
 import 'package:clima/services/networking.dart';
 import 'package:flutter/material.dart';
 import 'package:clima/services/location.dart';
+import '../utilities/constants.dart';
 
 
-const apiKey = '20a69a8a521ffd77bd2cf52b73f7cfed';
 class loadingscreen extends StatefulWidget {
   @override
   State<loadingscreen> createState() => _loadingscreenState();
@@ -30,7 +30,7 @@ class _loadingscreenState extends State<loadingscreen> {
 
     var weatherData = await networkHelper.getData();
     Navigator.push(context, MaterialPageRoute(builder: (context){
-     return LocationScreen();
+     return LocationScreen(locationWeather: weatherData,);
     })
     );
 
@@ -42,7 +42,10 @@ class _loadingscreenState extends State<loadingscreen> {
   {
     return Scaffold(
         body: Center(
-          
+          child: SpinKitThreeBounce(
+            color: Colors.lightBlueAccent,
+            size: 50,
+          ),
 
         ),
         );
