@@ -3,6 +3,7 @@ import 'package:clima/screens/location_screen.dart';
 import 'package:clima/services/networking.dart';
 import 'package:flutter/material.dart';
 import 'package:clima/services/location.dart';
+import '../services/weather.dart';
 import '../utilities/constants.dart';
 
 const apiKey = '496781d96d32d174fdb6b60abc1f211f';
@@ -22,6 +23,7 @@ class _loadingscreenState extends State<loadingscreen> {
   }
 
   void getLocationData() async {
+    //var weatherData = await WeatherModel().getLocationWeather();
     Location location = Location();
     await location.getCurrentLocation();
     latitude = location.latitude;
