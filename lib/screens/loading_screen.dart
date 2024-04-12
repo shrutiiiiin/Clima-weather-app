@@ -29,10 +29,12 @@ class _loadingscreenState extends State<loadingscreen> {
     NetworkHelper networkHelper = NetworkHelper('https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey');
 
     var weatherData = await networkHelper.getData();
-    Navigator.push(context, MaterialPageRoute(builder: (context){
-     return LocationScreen(locationWeather: weatherData);
-    })
-    );
+
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return LocationScreen(
+        locationWeather: weatherData,
+      );
+    }));
   }
   @override
   Widget build(BuildContext context)
