@@ -6,7 +6,6 @@ class CityScreen extends StatefulWidget {
   @override
   State<CityScreen> createState() => _CityScreenState();
 }
-
 class _CityScreenState extends State<CityScreen> {
   @override
   Widget build(BuildContext context) {
