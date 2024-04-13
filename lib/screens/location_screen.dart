@@ -16,6 +16,7 @@ class _LocationScreenState extends State<LocationScreen> {
   late String weatherIcon;
   late String cityName;
   late String weatherMessage;
+  late String imagePath;
   @override
   void initState() {
     super.initState();
@@ -28,6 +29,7 @@ class _LocationScreenState extends State<LocationScreen> {
         weatherIcon = 'Error';
         weatherMessage = 'Unable to get weather data';
         cityName = '';
+        imagePath = 'images/home map pin.png';
         return;
       }
       double temp = weatherData['main']['temp'];
@@ -35,7 +37,7 @@ class _LocationScreenState extends State<LocationScreen> {
       var condition = weatherData['weather'][0]['id'];
       weatherIcon = weather.getWeatherIcon(condition)['emoji'] ?? '';
       weatherMessage = weather.getMessage(temperature);
-      String imagePath = weather.getWeatherIcon(condition)['imagePath'] ?? '';
+      imagePath = weather.getWeatherIcon(condition)['imagePath'] ?? '';
       // weatherIcon = weather.getWeatherIcon(condition);
       weatherMessage = weather.getMessage(temperature);
       cityName = weatherData['name'];
@@ -45,17 +47,7 @@ class _LocationScreenState extends State<LocationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('images/blueSky.jpg'),
-            fit: BoxFit.cover,
-            colorFilter: ColorFilter.mode(
-                Colors.white.withOpacity(0.8), BlendMode.dstATop),
-          ),
-        ),
-        constraints: BoxConstraints.expand(),
-        child: SafeArea(
+      body: SafeArea(
           child: Column(
             //mainAxisAlignment: MainAxisAlignment.spaceBetween,
             //crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -120,9 +112,10 @@ class _LocationScreenState extends State<LocationScreen> {
                               ),
                              ),
                           ),
-                          Image(image: AssetImage('images/home map pin.png'),
-                            height: 200,
-                              width: 150,
+                          Image.asset(
+                            imagePath,
+                            height: 50,
+                            width: 50,
                           ),
                         ],
                       ),
@@ -138,19 +131,27 @@ class _LocationScreenState extends State<LocationScreen> {
                       height: 150,
                      width: 300,
                      decoration: BoxDecoration(
-                       color: Colors.white,
+                       color: Color(0xFFDFBFFF),
                        borderRadius: BorderRadius.circular(10),
                      ),
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
-                        child: Text(
-                          '$temperature', style: TextStyle(fontWeight: FontWeight.bold, fontFamily: 'Spartan MB', fontSize: 36, color: Colors.black ),
+                        child: Container(
+                          width: 50,
+                          height: 100,
+
+                          child: Text(
+                            'the temperature is $temperature', style: TextStyle(fontWeight: FontWeight.w400, fontFamily: 'Spartan MB', fontSize: 24, color: Colors.black ),
+                          ),
                         ),
                       ),
+
                     ),
                   ),
+                  // Text('$weatherIcon',style: TextStyle(fontSize: 45),),
                 ],
-              )
+              ),
+
               // Padding(
               //   padding: EdgeInsets.only(left: 15.0),
               //   child: Row(
@@ -178,7 +179,7 @@ class _LocationScreenState extends State<LocationScreen> {
             ],
           ),
         ),
-      ),
+
     );
   }
 }

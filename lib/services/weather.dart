@@ -21,21 +21,21 @@ class WeatherModel
 
 
     if (condition < 300) {
-      return {'emoji': '🌩', 'imagePath': 'assets/thunderstorm.png'};
+      return {'emoji': '🌩', 'imagePath': 'images/storm.png'};
     } else if (condition < 400) {
-      return {'emoji': '🌧', 'imagePath': 'assets/rain.png'};
+      return {'emoji': '🌧', 'imagePath': 'images/Rain cloud.png'};
     } else if (condition < 600) {
-      return {'emoji': '☔️', 'imagePath': 'assets/rainy.png'};
+      return {'emoji': '☔️', 'imagePath': 'images/Rain cloud.png'};
     } else if (condition < 700) {
-      return {'emoji': '☃️', 'imagePath': 'assets/snow.png'};
+      return {'emoji': '☃️', 'imagePath': 'images/night.png'};
     } else if (condition < 800) {
       return {'emoji': '🌫', 'imagePath': 'assets/mist.png'};
     } else if (condition == 800) {
-      return {'emoji': '☀️', 'imagePath': 'assets/clear.png'};
+      return {'emoji': '☀️', 'imagePath': 'images/sunny side up eggs.png'};
     } else if (condition <= 804) {
-      return {'emoji': '☁️', 'imagePath': 'assets/clouds.png'};
+      return {'emoji': '☁️', 'imagePath': 'images/cloud.png'};
     } else {
-      return {'emoji': '🤷‍', 'imagePath': 'assets/unknown.png'};
+      return {'emoji': '🤷‍', 'imagePath': 'images/home map pin.png'};
     }
   }
 
