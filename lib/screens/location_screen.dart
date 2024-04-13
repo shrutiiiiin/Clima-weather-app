@@ -98,31 +98,35 @@ class _LocationScreenState extends State<LocationScreen> {
               ),
               SizedBox(height: 20,),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
 
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Container(
-                      height: 150,
-                      width: 250,
-                      child: Stack(
-                        alignment: Alignment.centerRight,
+                      height: 190,
+                      width: 300,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            width: 200, // Set the desired width for the text
-                            height: 100, // Set the desired height for the text
-                            child: Text(
-                              "$weatherMessage in $cityName",
-                              style: TextStyle(fontSize: 36, fontFamily: 'Spartan MB'),
-                            ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 30),
+                            child: Container(
+                              width: 150, // Set the desired width for the text
+                              height: 190,
+                              child: Text(
+                                "$weatherMessage in $cityName",
+                                style: TextStyle(fontSize: 34, fontFamily: 'Spartan MB'),
+                              ),
+                             ),
                           ),
-                          SizedBox(width: 100,),
-                          Image(image: AssetImage('images/world map.png'),
-                            // height: 150,
-                            //   width: 250,
+                          Image(image: AssetImage('images/home map pin.png'),
+                            height: 200,
+                              width: 150,
                           ),
                         ],
-                      )
+                      ),
+
 
                     ),
                   ),
@@ -130,7 +134,16 @@ class _LocationScreenState extends State<LocationScreen> {
               ),
               Row(
                 children: [
-                  
+                  Container(
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Text(
+                        '$temperature', style: TextStyle(
+                        fontSize: 36, fontFamily: 'Spartan MB', color: Colors.lightBlueAccent
+                      ),
+                      ),
+                    ),
+                  )
                 ],
               )
               // Padding(
