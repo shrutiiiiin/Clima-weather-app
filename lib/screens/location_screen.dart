@@ -114,8 +114,8 @@ class _LocationScreenState extends State<LocationScreen> {
                           ),
                           Image.asset(
                             imagePath,
-                            height: 50,
-                            width: 50,
+                            // height: 50,
+                            // width: 50,
                           ),
                         ],
                       ),

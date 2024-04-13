@@ -29,7 +29,7 @@ class WeatherModel
     } else if (condition < 700) {
       return {'emoji': '☃️', 'imagePath': 'images/night.png'};
     } else if (condition < 800) {
-      return {'emoji': '🌫', 'imagePath': 'assets/mist.png'};
+      return {'emoji': '🌫', 'imagePath': 'images/mist.png'};
     } else if (condition == 800) {
       return {'emoji': '☀️', 'imagePath': 'images/sunny side up eggs.png'};
     } else if (condition <= 804) {
