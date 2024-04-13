@@ -114,8 +114,8 @@ class _LocationScreenState extends State<LocationScreen> {
                           ),
                           Image.asset(
                             imagePath,
-                            // height: 50,
-                            // width: 50,
+                            height: 150,
+                            width: 150,
                           ),
                         ],
                       ),
@@ -123,34 +123,38 @@ class _LocationScreenState extends State<LocationScreen> {
                   ),
                 ],
               ),
-              Row(
+
+            Container(
+              height: 150,
+              width: 300,
+              decoration: BoxDecoration(
+                color: Color(0xFFDFBFFF),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Container(
-                      height: 150,
-                     width: 300,
-                     decoration: BoxDecoration(
-                       color: Color(0xFFDFBFFF),
-                       borderRadius: BorderRadius.circular(10),
-                     ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Container(
-                          width: 50,
-                          height: 100,
+                  Text('$weatherIcon',style: TextStyle(fontSize: 80),),
 
-                          child: Text(
-                            'the temperature is $temperature', style: TextStyle(fontWeight: FontWeight.w400, fontFamily: 'Spartan MB', fontSize: 24, color: Colors.black ),
-                          ),
-                        ),
-                      ),
-
+                  Row(
+                    children: [
+                      Text('the temperature is', style: TextStyle(color: Colors.black,fontSize: 16,fontFamily: 'Spartan MB' ),),
+                      SizedBox(width: 10,),
+                      Text(
+                      '$temperature', style: TextStyle(fontWeight: FontWeight.w400, fontFamily: 'Spartan MB', fontSize: 32, color: Colors.white ),
                     ),
-                  ),
-                  // Text('$weatherIcon',style: TextStyle(fontSize: 45),),
+                    ],
+                  )
+
                 ],
               ),
+            )
+
+
+
+
+                  // Text('$weatherIcon',style: TextStyle(fontSize: 45),),
+
 
               // Padding(
               //   padding: EdgeInsets.only(left: 15.0),
