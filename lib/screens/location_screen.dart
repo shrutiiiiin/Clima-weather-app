@@ -136,14 +136,20 @@ class _LocationScreenState extends State<LocationScreen> {
                 children: [
                   Text('$weatherIcon',style: TextStyle(fontSize: 80),),
 
-                  Row(
-                    children: [
-                      Text('the temperature is', style: TextStyle(color: Colors.black,fontSize: 16,fontFamily: 'Spartan MB' ),),
-                      SizedBox(width: 10,),
-                      Text(
-                      '$temperature', style: TextStyle(fontWeight: FontWeight.w400, fontFamily: 'Spartan MB', fontSize: 32, color: Colors.white ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 23),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 2),
+                          child: Text('The temperature is', style: TextStyle(color: Colors.black,fontSize: 16,fontFamily: 'Spartan MB' ),),
+                        ),
+                        SizedBox(width: 10,),
+                        Text(
+                        '$temperature', style: TextStyle(fontWeight: FontWeight.w400, fontFamily: 'Spartan MB', fontSize: 24, color: Colors.black ),
+                      ),
+                      ],
                     ),
-                    ],
                   )
 
                 ],
