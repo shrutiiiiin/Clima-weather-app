@@ -18,15 +18,24 @@ class _LocationScreenState extends State<LocationScreen> {
   @override
   void initState() {
     super.initState();
-    UpdateUI(widget.locationWeather);
+    updateUI(widget.locationWeather);
   }
-  void UpdateUI(dynamic weatherData){
-     double temp = weatherData['main']['temp'];
-     temperature = temp.toInt();
-     var condition = weatherData['weather'][0]['id'];
-     weatherIcon = weather.getWeatherIcon(condition);
-     weatherMessage = weather.getMessage(temp);
-     cityName = weatherData['name'];
+  void updateUI(dynamic weatherData) {
+    setState(() {
+      if (weatherData == null) {
+        temperature = 0;
+        weatherIcon = 'Error';
+        weatherMessage = 'Unable to get weather data';
+        cityName = '';
+        return;
+      }
+      double temp = weatherData['main']['temp'];
+      temperature = temp.toInt();
+      var condition = weatherData['weather'][0]['id'];
+      weatherIcon = weather.getWeatherIcon(condition);
+      weatherMessage = weather.getMessage(temperature);
+      cityName = weatherData['name'];
+    });
   }
   @override
   Widget build(BuildContext context) {
@@ -49,7 +58,7 @@ class _LocationScreenState extends State<LocationScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  FlatButton(
+                  TextButton(
                     onPressed: () async {
                       var weatherData = await weather.getLocationWeather();
                       updateUI(weatherData);
@@ -59,7 +68,7 @@ class _LocationScreenState extends State<LocationScreen> {
                       size: 50.0,
                     ),
                   ),
-                  FlatButton(
+                  TextButton(
                     onPressed: () async {
                       var typedName = await Navigator.push(
                         context,
