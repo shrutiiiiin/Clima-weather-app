@@ -17,25 +17,28 @@ class WeatherModel
     return weatherData;
   }
 
-  String getWeatherIcon(int condition) {
+  Map<String, String> getWeatherIcon(int condition) {
+
+
     if (condition < 300) {
-      return '🌩';
+      return {'emoji': '🌩', 'imagePath': 'assets/thunderstorm.png'};
     } else if (condition < 400) {
-      return '🌧';
+      return {'emoji': '🌧', 'imagePath': 'assets/rain.png'};
     } else if (condition < 600) {
-      return '☔️';
+      return {'emoji': '☔️', 'imagePath': 'assets/rainy.png'};
     } else if (condition < 700) {
-      return '☃️';
+      return {'emoji': '☃️', 'imagePath': 'assets/snow.png'};
     } else if (condition < 800) {
-      return '🌫';
+      return {'emoji': '🌫', 'imagePath': 'assets/mist.png'};
     } else if (condition == 800) {
-      return '☀️';
+      return {'emoji': '☀️', 'imagePath': 'assets/clear.png'};
     } else if (condition <= 804) {
-      return '☁️';
+      return {'emoji': '☁️', 'imagePath': 'assets/clouds.png'};
     } else {
-      return '🤷‍';
+      return {'emoji': '🤷‍', 'imagePath': 'assets/unknown.png'};
     }
   }
+
 
   String getMessage(int temp) {
     if (temp > 25) {

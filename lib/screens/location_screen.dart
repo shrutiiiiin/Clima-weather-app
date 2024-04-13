@@ -33,9 +33,13 @@ class _LocationScreenState extends State<LocationScreen> {
       double temp = weatherData['main']['temp'];
       temperature = temp.toInt();
       var condition = weatherData['weather'][0]['id'];
-      weatherIcon = weather.getWeatherIcon(condition);
+      weatherIcon = weather.getWeatherIcon(condition)['emoji'] ?? '';
+      weatherMessage = weather.getMessage(temperature);
+      String imagePath = weather.getWeatherIcon(condition)['imagePath'] ?? '';
+      // weatherIcon = weather.getWeatherIcon(condition);
       weatherMessage = weather.getMessage(temperature);
       cityName = weatherData['name'];
+
     });
   }
   @override
@@ -44,7 +48,7 @@ class _LocationScreenState extends State<LocationScreen> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/location_background.jpg'),
+            image: AssetImage('images/blueSky.jpg'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
                 Colors.white.withOpacity(0.8), BlendMode.dstATop),
@@ -92,29 +96,67 @@ class _LocationScreenState extends State<LocationScreen> {
                   ),
                 ],
               ),
-              Padding(
-                padding: EdgeInsets.only(left: 15.0),
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      '$temperature°',
-                      style: kTempTextStyle,
+              SizedBox(height: 20,),
+              Row(
+                children: [
+
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Container(
+                      height: 150,
+                      width: 250,
+                      child: Stack(
+                        alignment: Alignment.centerRight,
+                        children: [
+                          Container(
+                            width: 200, // Set the desired width for the text
+                            height: 100, // Set the desired height for the text
+                            child: Text(
+                              "$weatherMessage in $cityName",
+                              style: TextStyle(fontSize: 36, fontFamily: 'Spartan MB'),
+                            ),
+                          ),
+                          SizedBox(width: 100,),
+                          Image(image: AssetImage('images/world map.png'),
+                            // height: 150,
+                            //   width: 250,
+                          ),
+                        ],
+                      )
+
                     ),
-                    Text(
-                      weatherIcon,
-                      style: kConditionTextStyle,
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              Padding(
-                padding: EdgeInsets.only(right: 15.0),
-                child: Text(
-                  '$weatherMessage in $cityName',
-                  textAlign: TextAlign.right,
-                  style: kMessageTextStyle,
-                ),
-              ),
+              Row(
+                children: [
+                  
+                ],
+              )
+              // Padding(
+              //   padding: EdgeInsets.only(left: 15.0),
+              //   child: Row(
+              //     children: <Widget>[
+              //       Text(
+              //         '$temperature°',
+              //         style: kTempTextStyle,
+              //       ),
+              //       Text(
+              //         weatherIcon,
+              //         style: kConditionTextStyle,
+              //       ),
+              //     ],
+              //   ),
+              // ),
+
+              // Padding(
+              //   padding: EdgeInsets.only(right: 15.0),
+              //   child: Text(
+              //     '$weatherMessage in $cityName',
+              //     textAlign: TextAlign.right,
+              //     style: kMessageTextStyle,
+              //   ),
+              // ),
             ],
           ),
         ),

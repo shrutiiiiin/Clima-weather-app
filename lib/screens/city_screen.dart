@@ -11,8 +11,9 @@ class _CityScreenState extends State<CityScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading:  Icon(Icons.arrow_back, size: 50),
+        leading:  Icon(Icons.arrow_back, size: 25),
       ),
+
 
 
     );
