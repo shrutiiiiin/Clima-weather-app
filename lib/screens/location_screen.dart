@@ -126,24 +126,29 @@ class _LocationScreenState extends State<LocationScreen> {
                           ),
                         ],
                       ),
-
-
                     ),
                   ),
                 ],
               ),
               Row(
                 children: [
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Text(
-                        '$temperature', style: TextStyle(
-                        fontSize: 36, fontFamily: 'Spartan MB', color: Colors.lightBlueAccent
-                      ),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Container(
+                      height: 150,
+                     width: 300,
+                     decoration: BoxDecoration(
+                       color: Colors.white,
+                       borderRadius: BorderRadius.circular(10),
+                     ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Text(
+                          '$temperature', style: TextStyle(fontWeight: FontWeight.bold, fontFamily: 'Spartan MB', fontSize: 36, color: Colors.black ),
+                        ),
                       ),
                     ),
-                  )
+                  ),
                 ],
               )
               // Padding(
