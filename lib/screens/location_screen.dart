@@ -92,7 +92,7 @@ class _LocationScreenState extends State<LocationScreen> {
               ),
               SizedBox(height: 20,),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
 
                   Padding(
@@ -110,7 +110,7 @@ class _LocationScreenState extends State<LocationScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(top: 30,left: 5,right: 5),
+                            padding: const EdgeInsets.only(top: 30,left: 15),
                             child: Container(
                               width: 150, // Set the desired width for the text
                               height: 190,
