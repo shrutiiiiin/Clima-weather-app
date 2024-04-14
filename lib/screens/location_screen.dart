@@ -98,26 +98,32 @@ class _LocationScreenState extends State<LocationScreen> {
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Container(
+
                       height: 190,
                       width: 300,
+                      decoration: BoxDecoration(
+                        color:Color(0xFF69A0FD),
+                        borderRadius: BorderRadius.circular(15), // Set the border radius
+                      ),
+
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(top: 30),
+                            padding: const EdgeInsets.only(top: 30,left: 5,right: 5),
                             child: Container(
                               width: 150, // Set the desired width for the text
                               height: 190,
                               child: Text(
                                 "$weatherMessage in $cityName",
-                                style: TextStyle(fontSize: 34, fontFamily: 'Spartan MB'),
+                                style: TextStyle(fontSize: 32, fontFamily: 'Spartan MB',color: Colors.white),
                               ),
                              ),
                           ),
                           Image.asset(
                             imagePath,
-                            height: 150,
-                            width: 150,
+                            height: 130,
+                            width: 130,
                           ),
                         ],
                       ),
@@ -129,10 +135,10 @@ class _LocationScreenState extends State<LocationScreen> {
             Container(
               height: 150,
               width: 300,
-              decoration: BoxDecoration(
-                color:Color(0xFF69A0FD),
-                borderRadius: BorderRadius.circular(10),
-              ),
+              // decoration: BoxDecoration(
+              //   color:Color(0xFF69A0FD),
+              //   borderRadius: BorderRadius.circular(10),
+              // ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
