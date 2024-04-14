@@ -142,70 +142,32 @@ class _LocationScreenState extends State<LocationScreen> {
                   ],
                 ),
 
-              Container(
-                height: 150,
-                width: 300,
-                // decoration: BoxDecoration(
-                //   color:Color(0xFF69A0FD),
-                //   borderRadius: BorderRadius.circular(10),
-                // ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
 
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 10),
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(top: 2),
-                            child: Text('The temperature is', style: TextStyle(color: Colors.white,fontSize: 20,fontFamily: 'Spartan MB',fontWeight: FontWeight.w300 ),),
-                          ),
-                          SizedBox(width: 10,),
-                          Text(
-                          '$temperature', style: TextStyle(fontWeight: FontWeight.bold, fontFamily: 'Spartan MB', fontSize: 24, color: Colors.white ),
-                        ),
-                          SizedBox(width: 10,),
-                          Text('$weatherIcon',style: TextStyle(fontSize: 24),),
-                        ],
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 5),
+                    child: Row(
+                      children: [
+                        Text('The temperature is', style: TextStyle(color: Colors.white,fontSize: 20,fontFamily: 'Spartan MB',fontWeight: FontWeight.w300 ),),
+                        SizedBox(width: 10,),
+                        Text(
+                        '$temperature', style: TextStyle(fontWeight: FontWeight.bold, fontFamily: 'Spartan MB', fontSize: 24, color: Colors.white ),
                       ),
+                        SizedBox(width: 10,),
+                        Text('$weatherIcon',style: TextStyle(fontSize: 24),),
+                      ],
                     ),
-
-
-                  ],
-                ),
-              )
-
-
-
-
-                    // Text('$weatherIcon',style: TextStyle(fontSize: 45),),
-
-
-                // Padding(
-                //   padding: EdgeInsets.only(left: 15.0),
-                //   child: Row(
-                //     children: <Widget>[
-                //       Text(
-                //         '$temperature°',
-                //         style: kTempTextStyle,
-                //       ),
-                //       Text(
-                //         weatherIcon,
-                //         style: kConditionTextStyle,
-                //       ),
-                //     ],
-                //   ),
-                // ),
-
-                // Padding(
-                //   padding: EdgeInsets.only(right: 15.0),
-                //   child: Text(
-                //     '$weatherMessage in $cityName',
-                //     textAlign: TextAlign.right,
-                //     style: kMessageTextStyle,
-                //   ),
-                // ),
+                  ),
+                ],
+              ),
+                SizedBox(height: 5,),
+                Image(
+                    image: AssetImage('images/world map.png',),
+                    height:300,
+                    width: 300,
+                  ),
               ],
             ),
           ),
