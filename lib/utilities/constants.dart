@@ -21,7 +21,7 @@ const kConditionTextStyle = TextStyle(
 
 const kTextFieldInputDecoration = InputDecoration(
   filled: true,
-  fillColor: Colors.white,
+  fillColor: Colors.lightBlueAccent,
   icon: Icon(
     Icons.location_city,
     color: Colors.white,

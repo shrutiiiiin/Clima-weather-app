@@ -63,6 +63,7 @@ class _LocationScreenState extends State<LocationScreen> {
                     child: Icon(
                       Icons.near_me,
                       size: 25.0,
+                      color: Colors.lightBlue,
                     ),
                   ),
                   TextButton(
@@ -75,15 +76,16 @@ class _LocationScreenState extends State<LocationScreen> {
                           },
                         ),
                       );
-                      // if (typedName != null) {
-                      //   var weatherData =
-                      //   await weather.getCityWeather(typedName);
-                      //   updateUI(weatherData);
-                      // }
+                      if (typedName != null) {
+                        var weatherData =
+                        await weather.getCityWeather(typedName);
+                        updateUI(weatherData);
+                      }
                     },
                     child: Icon(
                       Icons.location_city,
                       size: 25.0,
+                      color: Colors.lightBlue,
                     ),
                   ),
                 ],
@@ -128,7 +130,7 @@ class _LocationScreenState extends State<LocationScreen> {
               height: 150,
               width: 300,
               decoration: BoxDecoration(
-                color: Color(0xFFDFBFFF),
+                color:Color(0xFF69A0FD),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Row(
