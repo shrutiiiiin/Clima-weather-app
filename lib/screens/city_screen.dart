@@ -11,42 +11,45 @@ class _CityScreenState extends State<CityScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(
-         leading: IconButton( onPressed: () { 
-           Navigator.pop(context);
-         }, icon: Icon(Icons.arrow_back,size: 25,),),
-
-       ),
-      body: Column(
-        children: [
-          Row(
-            children: [
+      body: SafeArea(
+          child: Column(
+            children: <Widget>[
+              Align(
+                alignment: Alignment.topLeft,
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    size: 25.0, color: Colors.black,
+                  ),
+                ),
+              ),
               Container(
                 padding: EdgeInsets.all(20.0),
                 child: TextField(
                   style: TextStyle(
                     color: Colors.black,
                   ),
-                  decoration: kTextFieldInputDecoration,
+                  decoration:kTextFieldInputDecoration,
                   onChanged: (value) {
                     cityName = value;
                   },
                 ),
               ),
-              Icon(Icons.location_city, size: 25, color: Colors.lightBlueAccent,)
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context, cityName);
+                },
+                child: Text(
+                  'Get Weather',
+                  style: kButtonTextStyle,
+                ),
+              ),
             ],
           ),
-          TextButton(
-            onPressed: () {
-              Navigator.pop(context, cityName);
-            },
-            child: Text(
-              'Get Weather',
-              style: kButtonTextStyle,
-            ),
-          ),
-        ],
-      ),
+        ),
     );
   }
 }

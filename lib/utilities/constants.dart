@@ -24,11 +24,11 @@ const kTextFieldInputDecoration = InputDecoration(
   fillColor: Colors.lightBlueAccent,
   icon: Icon(
     Icons.location_city,
-    color: Colors.white,
+    color: Colors.lightBlueAccent,
   ),
   hintText: 'Enter City Name',
   hintStyle: TextStyle(
-    color: Colors.grey,
+    color: Colors.white,
   ),
   border: OutlineInputBorder(
     borderRadius: BorderRadius.all(
