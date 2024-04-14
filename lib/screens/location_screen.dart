@@ -47,159 +47,169 @@ class _LocationScreenState extends State<LocationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-          child: Column(
-            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Row(
-                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  TextButton(
-                    onPressed: () async {
-                      var weatherData = await weather.getLocationWeather();
-                      updateUI(weatherData);
-                    },
-                    child: Icon(
-                      Icons.near_me,
-                      size: 25.0,
-                      color: Colors.lightBlue,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () async {
-                      var typedName = await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return CityScreen();
-                          },
-                        ),
-                      );
-                      if (typedName != null) {
-                        var weatherData =
-                        await weather.getCityWeather(typedName);
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('images/blueSky.jpg'),
+            fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(
+                Colors.white.withOpacity(0.8), BlendMode.dstATop),
+          ),
+        ),
+        constraints: BoxConstraints.expand(),
+        child: SafeArea(
+            child: Column(
+              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Row(
+                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    TextButton(
+                      onPressed: () async {
+                        var weatherData = await weather.getLocationWeather();
                         updateUI(weatherData);
-                      }
-                    },
-                    child: Icon(
-                      Icons.location_city,
-                      size: 25.0,
-                      color: Colors.lightBlue,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 20,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Container(
-
-                      height: 190,
-                      width: 300,
-                      decoration: BoxDecoration(
-                        color:Color(0xFF69A0FD),
-                        borderRadius: BorderRadius.circular(15), // Set the border radius
+                      },
+                      child: Icon(
+                        Icons.near_me,
+                        size: 25.0,
+                        color: Colors.lightBlue,
                       ),
+                    ),
+                    TextButton(
+                      onPressed: () async {
+                        var typedName = await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return CityScreen();
+                            },
+                          ),
+                        );
+                        if (typedName != null) {
+                          var weatherData =
+                          await weather.getCityWeather(typedName);
+                          updateUI(weatherData);
+                        }
+                      },
+                      child: Icon(
+                        Icons.location_city,
+                        size: 25.0,
+                        color: Colors.lightBlue,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
 
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Container(
+
+                        height: 190,
+                        width: 300,
+                        // decoration: BoxDecoration(
+                        //   color:Color(0xFF69A0FD),
+                        //   borderRadius: BorderRadius.circular(15), // Set the border radius
+                        // ),
+
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(top: 30,left: 15),
+                              child: Container(
+                                width: 150, // Set the desired width for the text
+                                height: 190,
+                                child: Text(
+                                  "$weatherMessage in $cityName",
+                                  style: TextStyle(fontSize: 36, fontFamily: 'Spartan MB',color: Colors.white, fontWeight: FontWeight.bold),
+                                ),
+                               ),
+                            ),
+                            Image.asset(
+                              imagePath,
+                              height: 130,
+                              width: 130,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+
+              Container(
+                height: 150,
+                width: 300,
+                // decoration: BoxDecoration(
+                //   color:Color(0xFF69A0FD),
+                //   borderRadius: BorderRadius.circular(10),
+                // ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(top: 30,left: 15),
-                            child: Container(
-                              width: 150, // Set the desired width for the text
-                              height: 190,
-                              child: Text(
-                                "$weatherMessage in $cityName",
-                                style: TextStyle(fontSize: 32, fontFamily: 'Spartan MB',color: Colors.white),
-                              ),
-                             ),
+                            padding: const EdgeInsets.only(top: 2),
+                            child: Text('The temperature is', style: TextStyle(color: Colors.white,fontSize: 20,fontFamily: 'Spartan MB',fontWeight: FontWeight.w300 ),),
                           ),
-                          Image.asset(
-                            imagePath,
-                            height: 130,
-                            width: 130,
-                          ),
+                          SizedBox(width: 10,),
+                          Text(
+                          '$temperature', style: TextStyle(fontWeight: FontWeight.bold, fontFamily: 'Spartan MB', fontSize: 24, color: Colors.white ),
+                        ),
+                          SizedBox(width: 10,),
+                          Text('$weatherIcon',style: TextStyle(fontSize: 24),),
                         ],
                       ),
                     ),
-                  ),
-                ],
-              ),
-
-            Container(
-              height: 150,
-              width: 300,
-              // decoration: BoxDecoration(
-              //   color:Color(0xFF69A0FD),
-              //   borderRadius: BorderRadius.circular(10),
-              // ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
 
 
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 23),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 2),
-                          child: Text('The temperature is', style: TextStyle(color: Colors.black,fontSize: 20,fontFamily: 'Spartan MB' ),),
-                        ),
-                        SizedBox(width: 10,),
-                        Text(
-                        '$temperature', style: TextStyle(fontWeight: FontWeight.w400, fontFamily: 'Spartan MB', fontSize: 24, color: Colors.black ),
-                      ),
-                        SizedBox(width: 10,),
-                        Text('$weatherIcon',style: TextStyle(fontSize: 24),),
-                      ],
-                    ),
-                  ),
-
-
-                ],
-              ),
-            )
+                  ],
+                ),
+              )
 
 
 
 
-                  // Text('$weatherIcon',style: TextStyle(fontSize: 45),),
+                    // Text('$weatherIcon',style: TextStyle(fontSize: 45),),
 
 
-              // Padding(
-              //   padding: EdgeInsets.only(left: 15.0),
-              //   child: Row(
-              //     children: <Widget>[
-              //       Text(
-              //         '$temperature°',
-              //         style: kTempTextStyle,
-              //       ),
-              //       Text(
-              //         weatherIcon,
-              //         style: kConditionTextStyle,
-              //       ),
-              //     ],
-              //   ),
-              // ),
+                // Padding(
+                //   padding: EdgeInsets.only(left: 15.0),
+                //   child: Row(
+                //     children: <Widget>[
+                //       Text(
+                //         '$temperature°',
+                //         style: kTempTextStyle,
+                //       ),
+                //       Text(
+                //         weatherIcon,
+                //         style: kConditionTextStyle,
+                //       ),
+                //     ],
+                //   ),
+                // ),
 
-              // Padding(
-              //   padding: EdgeInsets.only(right: 15.0),
-              //   child: Text(
-              //     '$weatherMessage in $cityName',
-              //     textAlign: TextAlign.right,
-              //     style: kMessageTextStyle,
-              //   ),
-              // ),
-            ],
+                // Padding(
+                //   padding: EdgeInsets.only(right: 15.0),
+                //   child: Text(
+                //     '$weatherMessage in $cityName',
+                //     textAlign: TextAlign.right,
+                //     style: kMessageTextStyle,
+                //   ),
+                // ),
+              ],
+            ),
           ),
-        ),
+      ),
 
     );
   }
